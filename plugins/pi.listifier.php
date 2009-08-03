@@ -21,8 +21,8 @@
 	Purpose: 
 	- Makes a block of text into list items
 ----------------------------------------------------------
-	Notes: 
-	- None
+	Patch Credits:
+	- Brandon Kelly, brandon-kelly.com
 ==========================================================
 */
 
@@ -79,7 +79,7 @@ class Listifier {
 ?>
 To use this plugin, wrap the block of text you want to be processed by it between these tag pairs:
 
-{exp:listifier separator=","}
+{exp:listifier separator="," node="li"}
 
 :replace me:
 
