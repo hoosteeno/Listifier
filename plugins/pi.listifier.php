@@ -53,12 +53,13 @@ class Listifier {
 		// Fetch parameters
 		$text = $TMPL->tagdata;
 		
-		$separator = ($TMPL->fetch_param('separator')) ? $TMPL->fetch_param('separator') : "\n";
+		if (($separator = $TMPL->fetch_param('separator')) === FALSE) $separator = "\n";
+		if (($node = $TMPL->fetch_param('node')) === FALSE) $node = "li";
 
 		// put in li tags between each item
-		$TMPL->tagdata = str_replace($separator, "</li>\n<li>" , $TMPL->tagdata);
+		$TMPL->tagdata = str_replace($separator, "</{$node}>\n<{$node}>" , $TMPL->tagdata);
 		// and at the beginning and end
-		$TMPL->tagdata = "<li>" . $TMPL->tagdata . "</li>";
+		$TMPL->tagdata = "<{$node}>" . $TMPL->tagdata . "</{$node}>";
 		
 		// Return it
 		$this->return_data =  $TMPL->tagdata;
